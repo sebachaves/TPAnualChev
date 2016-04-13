@@ -6,19 +6,14 @@ import java.util.ArrayList;
 
 public class LocalComercial extends POI{
 
-	//Variables
-	private OffsetTime horarioApertura;
-	private OffsetTime horarioCierre;
-		
-	private ArrayList<String> diasAbierto;
-	
 	//Constructor
-	public LocalComercial(Coordenada unaCoordenada, String unaCalle, int unaAltura, DayOfWeek diaInicial, DayOfWeek diaFinal){
+	public LocalComercial(Coordenada unaCoordenada, String unaCalle, int unaAltura, 
+							DayOfWeek diaInicial, DayOfWeek diaFinal, int unaHoraApertura, int unaHoraCierre){
 		
 		super(unaCoordenada, unaCalle, unaAltura, diaInicial, diaFinal);
 		
-		this.horarioApertura = OffsetTime.of(horaApertura, 0, 0, 0, ZoneOffset.UTC);
-		this.horarioCierre = OffsetTime.of(horaCierre, 0, 0, 0, ZoneOffset.UTC);
+		this.setHorarioApertura(OffsetTime.of(unaHoraApertura, 0, 0, 0, ZoneOffset.UTC));
+		this.setHorarioCierre(OffsetTime.of(unaHoraCierre, 0, 0, 0, ZoneOffset.UTC));
 	
 		
 	}
