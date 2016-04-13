@@ -10,12 +10,7 @@ import java.util.Collection;
 import java.util.stream.Stream;
 
 public class ServicioPOI {
-	
-	//Variables
-	private Collection<POI> puntosDeInteres;
-	public static Coordenada coordenada;	
-	public static Collection<String> DiasHabiles = new ArrayList<String>();
-	
+
 	//Metodos
 	/*
 	public boolean estaCerca(POI unPOI){
@@ -27,12 +22,10 @@ public class ServicioPOI {
 	
 	public boolean estaDisponible(POI poiSolicitado, LocalDateTime unDia){
 		
-		//LocalDateTime.of(year, month, dayOfMonth, hour, minute, second)
-		
 		OffsetTime horarioSolicitado = OffsetTime.of(unDia.getHour(), unDia.getMinute(), 
 									unDia.getSecond(), 0, ZoneOffset.UTC);
 		
-		LocalDate diaSolicitado = LocalDate.of(unDia.getYear(), unDia.getMonth(), unDia.getDayOfMonth());
+		DayOfWeek diaSolicitado = DayOfWeek.from(unDia);
 		
 		return poiSolicitado.estaDisponible(horarioSolicitado, diaSolicitado);
 		

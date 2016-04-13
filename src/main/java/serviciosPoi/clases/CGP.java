@@ -25,12 +25,6 @@ public class CGP extends POI{
 			this.horaCierre = unaHoraCierre;
 			
 		}
-		
-		public boolean estaAtendiendo(){
-			
-			
-			
-		}
 				
 	}
 	

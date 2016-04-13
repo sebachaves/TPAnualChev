@@ -1,4 +1,5 @@
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.OffsetTime;
 import java.time.ZoneOffset;
@@ -24,8 +25,14 @@ public class MainPruebas {
 		
 		System.out.println(DayOfWeek.FRIDAY.getValue());
 		
+		LocalDate diaSolicitado = LocalDate.of(2016, 4, 13);
 		
+		System.out.println(diaSolicitado);
 		
+		DayOfWeek dia = DayOfWeek.from(diaSolicitado);
+		
+		System.out.println(dia);
+			
 	}
 	
 }
