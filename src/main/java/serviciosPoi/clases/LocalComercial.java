@@ -5,6 +5,8 @@ import java.time.OffsetTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 
+import serviciosPoi.clases.CGP.Servicios;
+
 public class LocalComercial extends POI{
 
 	//Constructor
@@ -26,17 +28,19 @@ public class LocalComercial extends POI{
 
 		super(unaCoordenada, unaCalle, unaAltura);
 
+		this.setDiasQueAbre(diasQueAbre);
+		
 		this.setHorarioApertura(OffsetTime.of(unaHoraApertura, 0, 0, 0, ZoneOffset.UTC));
 		this.setHorarioCierre(OffsetTime.of(unaHoraCierre, 0, 0, 0, ZoneOffset.UTC));
 
 	}
 
 	//Metodos Abstractos
-	public boolean estaDisponible(OffsetTime horarioSolicitado, String diaSolicitado){
+	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, Servicios unServicio){
 		
-		return (diasAbierto.contains(diaSolicitado.toUpperCase()) 
-				&& horarioSolicitado.isBefore(horarioCierre)
-				&& horarioSolicitado.isAfter(horarioApertura));
+		return (estaEnElDiaCorrecto(diaSolicitado)
+				&& horarioSolicitado.isBefore(this.getHorarioCierre())
+				&& horarioSolicitado.isAfter(this.getHorarioApertura()));
 		
 	}
 

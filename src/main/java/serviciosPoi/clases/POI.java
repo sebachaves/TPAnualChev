@@ -1,9 +1,10 @@
 package serviciosPoi.clases;
 
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.OffsetTime;
 import java.util.ArrayList;
+
+import serviciosPoi.clases.CGP.Servicios;
 
 public abstract class POI {
 	
@@ -24,6 +25,7 @@ public abstract class POI {
 		
 		this.coordenadaPOI = unaCoordenada;
 		this.palabrasClave = new ArrayList<String>();
+		this.diasAbierto = new ArrayList<Integer>();
 		this.direccion = new Direccion(unaCalle, unaAltura);	
 		
 	}
@@ -38,6 +40,12 @@ public abstract class POI {
 	public OffsetTime getHorarioCierre(){
 		
 		return this.horarioCierre;
+		
+	}
+	
+	public ArrayList<Integer> getDiasQueAbre(){
+		
+		return this.diasAbierto;
 		
 	}
 	
@@ -63,6 +71,12 @@ public abstract class POI {
 	public void setFinDeSemana(int unFinDeSemana){
 		
 		this.inicioSemana = unFinDeSemana;
+		
+	}
+	
+	public void setDiasQueAbre(ArrayList<DayOfWeek> unosDias){
+		
+		diasAbierto = (ArrayList<Integer>) unosDias.stream().mapToInt(unDia -> unDia.getValue());
 		
 	}
 	
@@ -100,7 +114,7 @@ public abstract class POI {
 	//public abstract boolean estaCerca();
 	//public abstract boolean buscarSegun(String palabraClave);
 	
-	public abstract boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado);
+	public abstract boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, Servicios unServicio );
 
 	
 	//Metodos

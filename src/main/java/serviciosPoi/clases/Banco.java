@@ -4,6 +4,8 @@ import java.time.DayOfWeek;
 import java.time.OffsetTime;
 import java.time.ZoneOffset;
 
+import serviciosPoi.clases.CGP.Servicios;
+
 public class Banco extends POI{
 
 	//Constructor
@@ -20,7 +22,7 @@ public class Banco extends POI{
 	}
 
 	//Metodos Abstractos
-	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado){
+	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, Servicios unServicio){
 		
 		return (this.estaEnElDiaCorrecto(diaSolicitado)
 				&& horarioSolicitado.isBefore(this.getHorarioCierre())

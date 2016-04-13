@@ -3,6 +3,8 @@ package serviciosPoi.clases;
 import java.time.DayOfWeek;
 import java.time.OffsetTime;
 
+import serviciosPoi.clases.CGP.Servicios;
+
 public class CGP extends POI{
 
 	//Variables
@@ -29,18 +31,26 @@ public class CGP extends POI{
 	}
 	
 	//Constructor
-	public CGP(Coordenada unaCoordenada, String unaCalle, int unaAltura, DayOfWeek diaInicial, DayOfWeek diaFinal){
+	public CGP(Coordenada unaCoordenada, String unaCalle, int unaAltura){
 		
-		super(unaCoordenada, unaCalle, unaAltura, diaInicial, diaFinal);
+		super(unaCoordenada, unaCalle, unaAltura);
 		
 	}
 	
 	//Metodos Abstractos
-	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado){
+	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, Servicios unServicio){
 		
-		
+		if(unServicio.equals(null)){
+			
+			return CGP.hayServicioDisponiblePara(horarioSolicitado, diaSolicitado);
+			
+		}
+				
+		return unServicio.getRangoAtencion() && unServicio.getDiasQueAtiende();
 		
 	}
+	
+	
 	
 	
 	
