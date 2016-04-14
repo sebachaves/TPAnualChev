@@ -4,8 +4,6 @@ import java.time.DayOfWeek;
 import java.time.OffsetTime;
 import java.util.ArrayList;
 
-import serviciosPoi.clases.CGP.Servicios;
-
 public abstract class POI {
 	
 	//Variables
@@ -16,17 +14,19 @@ public abstract class POI {
 	private int finSemana;
 	private ArrayList<Integer> diasAbierto;
 	
+	/* Algunas variables para despues.
 	private Coordenada coordenadaPOI;
 	private ArrayList<String> palabrasClave;
 	private Direccion direccion;
+	*/
 	
 	//Constructor
 	public POI(Coordenada unaCoordenada, String unaCalle, int unaAltura){
 		
-		this.coordenadaPOI = unaCoordenada;
-		this.palabrasClave = new ArrayList<String>();
+		//this.coordenadaPOI = unaCoordenada;
+		//this.palabrasClave = new ArrayList<String>();
 		this.diasAbierto = new ArrayList<Integer>();
-		this.direccion = new Direccion(unaCalle, unaAltura);	
+		//this.direccion = new Direccion(unaCalle, unaAltura);	
 		
 	}
 	
@@ -74,9 +74,10 @@ public abstract class POI {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void setDiasQueAbre(ArrayList<DayOfWeek> unosDias){
 		
-		diasAbierto = (ArrayList<Integer>) unosDias.stream().mapToInt(unDia -> unDia.getValue());
+		this.diasAbierto = (ArrayList<Integer>) unosDias.stream().mapToInt(unDia -> unDia.getValue());
 		
 	}
 	
@@ -114,8 +115,7 @@ public abstract class POI {
 	//public abstract boolean estaCerca();
 	//public abstract boolean buscarSegun(String palabraClave);
 	
-	public abstract boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, Servicios unServicio );
-
+	public abstract boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, String unServicio);
 	
 	//Metodos
 	public boolean estaEnElDiaCorrecto(DayOfWeek diaSolicitado){

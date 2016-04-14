@@ -3,8 +3,6 @@ package serviciosPoi.clases;
 import java.time.DayOfWeek;
 import java.time.OffsetTime;
 
-import serviciosPoi.clases.CGP.Servicios;
-
 public class ParadaColectivo extends POI{
 	
 	//Constructor
@@ -18,10 +16,11 @@ public class ParadaColectivo extends POI{
 	}
 	
 	//Metodos Abstractos
-	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, Servicios unServicio){
+	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, String unServicio){
 		
 		return true;
 		
 	}
+
 	
 }

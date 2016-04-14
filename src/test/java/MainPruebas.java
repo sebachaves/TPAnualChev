@@ -1,10 +1,8 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.OffsetTime;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalQueries;
 
 public class MainPruebas {
 	

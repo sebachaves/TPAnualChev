@@ -5,8 +5,6 @@ import java.time.OffsetTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 
-import serviciosPoi.clases.CGP.Servicios;
-
 public class LocalComercial extends POI{
 
 	//Constructor
@@ -36,7 +34,7 @@ public class LocalComercial extends POI{
 	}
 
 	//Metodos Abstractos
-	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, Servicios unServicio){
+	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, String unServicio){
 		
 		return (estaEnElDiaCorrecto(diaSolicitado)
 				&& horarioSolicitado.isBefore(this.getHorarioCierre())
