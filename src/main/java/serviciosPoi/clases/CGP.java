@@ -19,9 +19,8 @@ public class CGP extends POI{
 	//Metodos Abstractos
 	public boolean estaDisponible(OffsetTime horarioSolicitado, DayOfWeek diaSolicitado, String nombreDeUnServicio){
 		
-		Servicio servicioBuscado = (Servicio) servicios.stream().filter(unServicio -> unServicio.getNombre().equalsIgnoreCase(nombreDeUnServicio));
-		
-		return servicioBuscado.estaDisponibleElDia(diaSolicitado) && servicioBuscado.estaDisponibleALaHora(horarioSolicitado);
+		return this.servicios.stream().anyMatch(servicio -> servicio.getNombre().equalsIgnoreCase(nombreDeUnServicio) 
+												&& servicio.estaDisponibleALaHora(horarioSolicitado) && servicio.estaDisponibleElDia(diaSolicitado));
 		
 	}
 	
